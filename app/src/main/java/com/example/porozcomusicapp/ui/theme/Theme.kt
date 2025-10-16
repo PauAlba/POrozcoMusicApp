@@ -1,43 +1,54 @@
 package com.example.porozcomusicapp.ui.theme
 
-import android.app.Activity
+
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
+// --- 1. ESQUEMAS DE COLORES ---
 
+// Tema Claro (similar al mock: fondo claro, acentos morados/oscuros)
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,
+    primaryContainer = Purple80,
+    onPrimaryContainer = Color.Black,
+    secondary = DeepPurple,
     onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    background = BackgroundLightGray, // Fondo casi blanco/gris claro para las cards
+    onBackground = Color.Black,
+    surface = Color.White, // Fondo de las Cards (Recently Played, About)
+    onSurface = Color.Black,
+    error = Color(0xFFB00020),
+    onError = Color.White
+    /* Otros colores por defecto... */
 )
 
+// Tema Oscuro (Para el modo nocturno, si se desea soporte)
+private val DarkColorScheme = darkColorScheme(
+    primary = Purple80,
+    onPrimary = Color.Black,
+    primaryContainer = Purple40,
+    onPrimaryContainer = Color.White,
+    secondary = DeepPurple,
+    onSecondary = Color.White,
+    background = Color(0xFF121212), // Fondo oscuro estándar
+    onBackground = Color.White,
+    surface = Color(0xFF1E1E1E), // Superficies oscuras
+    onSurface = Color.White
+    /* Otros colores por defecto... */
+)
+
+
+
 @Composable
-fun POrozcoMusicAppTheme(
+fun POrOZCoMusicAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Desactivamos Dynamic color para asegurar que los colores del mock sean consistentes
+    dynamicColor: Boolean = false, // !dynamicColor
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -45,14 +56,13 @@ fun POrozcoMusicAppTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        else -> LightColorScheme // Usamos el esquema claro ajustado para el mock
     }
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = Typography, // Asume que tienes un Typography.kt configurado
         content = content
     )
 }

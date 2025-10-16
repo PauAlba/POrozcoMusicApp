@@ -8,11 +8,11 @@ plugins {
 
 android {
     // Asegúrate de que tu namespace coincida con la carpeta de tu código.
-    namespace = "com.porozco.musicapp"
+    namespace = "com.example.porozcomusicapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.porozco.musicapp"
+        applicationId = "com.example.porozcomusicapp"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.compose.material:material-icons-extended")
 
     // --- DEPENDENCIAS CORE ---
     val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
@@ -66,17 +67,17 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
     // --- DEPENDENCIAS DE NAVEGACIÓN ---
-    val navVersion = "2.7.7"
+    val navVersion = "2.8.9"
     implementation("androidx.navigation:navigation-compose:$navVersion")
 
     // --- DEPENDENCIAS DE RED Y SERIALIZACIÓN ---
-    val retrofitVersion = "2.11.0"
-    val kotlinxSerializationVersion = "1.6.3"
+    val retrofitVersion = "3.0.0"
+    val kotlinxSerializationVersion = "1.7.3"
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     // Conversor de Kotlinx Serialization para Retrofit
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
     // Kotlinx Serialization JSON
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationVersion")
 
@@ -91,4 +92,5 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("androidx.compose.material:material-icons-extended")
 }
