@@ -23,9 +23,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import kotlin.math.round
 
-// Colores del mock: Blanco (casi) y Morado/Azul para el degradado
-val ColorStart = Color(0xFF673AB7) // Morado Primario
-val ColorEnd = Color(0xFF9C27B0) // Magenta Secundario
+// Colores degradado
+val ColorStart = Color(0xFF673AB7)
+val ColorEnd = Color(0xFF9C27B0)
 
 @Composable
 fun AppBarHome(name: String) {

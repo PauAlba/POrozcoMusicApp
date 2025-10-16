@@ -37,7 +37,7 @@ fun DetailScreen(
     )
 ) {
     val miniPlayerAlbum = (viewModel.albumDetailState as? UiState.Success)?.data
-        ?: HomeViewModel().defaultMiniPlayerAlbum // Usar el álbum cargado o el placeholder
+        ?: HomeViewModel().defaultMiniPlayerAlbum
 
     Scaffold(
         bottomBar = {

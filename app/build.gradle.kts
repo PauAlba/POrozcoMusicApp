@@ -2,12 +2,12 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("plugin.compose")
-    // 1. Plugin de Kotlin Serialization
+
     kotlin("plugin.serialization")
 }
 
 android {
-    // Asegúrate de que tu namespace coincida con la carpeta de tu código.
+
     namespace = "com.example.porozcomusicapp"
     compileSdk = 35
 

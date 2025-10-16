@@ -37,18 +37,18 @@ fun AlbumCardHorizontal(album: Album, onClick: (String) -> Unit) {
             .padding(end = 12.dp)
             .clickable { onClick(album.id) }
     ) {
-        // Estado para rastrear si la carga falló o si la URL es nula/vacía
+
         var imageLoadFailed by remember { mutableStateOf(album.image.isNullOrEmpty()) }
 
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF282828)), // Fondo oscuro (fallback principal)
+                .background(Color(0xFF282828)),
             contentAlignment = Alignment.Center
         ) {
-            // --- Lógica de Manejo de Imagen / Fallback ---
+
             if (imageLoadFailed) {
-                // Muestra el ícono con un color claro para que contraste con el fondo oscuro
+
                 Icon(
                     imageVector = Icons.Filled.MusicNote,
                     contentDescription = "Placeholder Icon",
@@ -70,9 +70,7 @@ fun AlbumCardHorizontal(album: Album, onClick: (String) -> Unit) {
                     modifier = Modifier.fillMaxSize()
                 )
             }
-            // --- Fin Lógica de Fallback ---
 
-            // 2. Overlay de Degradado (Se mantiene siempre en la capa superior)
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -85,7 +83,7 @@ fun AlbumCardHorizontal(album: Album, onClick: (String) -> Unit) {
                     )
             )
 
-            // 3. Contenido de Texto y Botón
+
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
@@ -108,7 +106,7 @@ fun AlbumCardHorizontal(album: Album, onClick: (String) -> Unit) {
                 )
             }
 
-            // 4. Botón de Play Circular
+            // 4. Botón de Play
             ElevatedButton(
                 onClick = { /* Play action */ },
                 shape = androidx.compose.foundation.shape.CircleShape,

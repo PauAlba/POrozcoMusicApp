@@ -79,7 +79,7 @@ fun HomeScreen(
                     }
                 }
 
-                // Sección de Reproducido Recientemente (LazyColumn)
+                //  Recientemente (LazyColumn)
                 item {
                     Row(
                         modifier = Modifier
@@ -100,7 +100,7 @@ fun HomeScreen(
                     }
                 }
 
-                // La lista vertical de "Recently Played" se mapea a los ítems de LazyColumn
+
                 when (val state = viewModel.recentlyPlayedState) {
                     is UiState.Success -> {
                         items(state.data) { album ->
@@ -111,10 +111,9 @@ fun HomeScreen(
                         }
                     }
                     is UiState.Loading -> {
-                        items(5) { // 5 ítems de carga simulados
-                            // Ítem de carga (puedes crear un componente Skeleton)
+                        items(5) {
                             AlbumCardVertical(
-                                album = viewModel.defaultMiniPlayerAlbum, // Placeholder
+                                album = viewModel.defaultMiniPlayerAlbum,
                                 onClick = onAlbumClick
                             )
                         }

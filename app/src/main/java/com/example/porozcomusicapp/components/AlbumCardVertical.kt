@@ -45,20 +45,20 @@ fun AlbumCardVertical(album: Album, type: String = "Popular Song", onClick: (Str
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            // Estado para rastrear si la carga falló o si la URL es nula/vacía
+
             var imageLoadFailed by remember { mutableStateOf(album.image.isNullOrEmpty()) }
 
-            // Contenedor para la Imagen/Icono
+
             Box(
                 modifier = Modifier
                     .size(56.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(Color(0xFF282828)), // Fondo oscuro (fallback)
+                    .background(Color(0xFF282828)),
                 contentAlignment = Alignment.Center
             ) {
-                // --- Lógica de Manejo de Imagen / Fallback ---
+
                 if (imageLoadFailed) {
-                    // Muestra el ícono con un color claro para que contraste con el fondo oscuro
+
                     Icon(
                         imageVector = Icons.Filled.MusicNote,
                         contentDescription = "Placeholder Icon",

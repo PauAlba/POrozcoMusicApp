@@ -26,17 +26,17 @@ import kotlinx.serialization.InternalSerializationApi
 
 @Composable
 fun MusicPlayerBar(currentAlbum: Album) {
-    // Estado de reproducción simulado
+
     var isPlaying by remember { mutableStateOf(true) }
 
     Surface(
-        color = Color(0xFF1E0E32), // Fondo oscuro
+        color = Color(0xFF1E0E32),
         shape = RoundedCornerShape(20.dp),
         modifier = Modifier
             .fillMaxWidth()
             .height(80.dp)
             .padding(horizontal = 4.dp)
-            .padding(vertical = 4.dp),// Separación lateral del borde
+            .padding(vertical = 4.dp),
         shadowElevation = 8.dp
     ) {
         Row(
